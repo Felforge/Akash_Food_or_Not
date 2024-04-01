@@ -1,4 +1,4 @@
-from fastai.vision.all import *
+from fastai.vision.all import load_learner
 import gradio as gr
 
 LEARNER = load_learner("Akash_Food_or_Not.pkl")
@@ -10,7 +10,7 @@ def will_akash_eat(learn) -> bool:
             return True
         else:
             return False
-    return will_akash_eat_inner
+    return will_akash_eat_innerx
 
 image = gr.inputs.Image(shape=(192,192))
 label = gr.outputs.Label()
