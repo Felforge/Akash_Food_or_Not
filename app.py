@@ -10,7 +10,7 @@ def will_akash_eat(learn) -> bool:
             return True
         else:
             return False
-    return will_akash_eat_innerx
+    return will_akash_eat_inner
 
 image = gr.inputs.Image(shape=(192,192))
 label = gr.outputs.Label()
