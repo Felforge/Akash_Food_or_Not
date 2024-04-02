@@ -10,8 +10,8 @@ def will_akash_eat(learn) -> bool:
         return {labels[i]: float(probs[i]) for i in range(len(labels))}
     return will_akash_eat_inner
 
-image = gr.inputs.Image(shape=(192,192))
-label = gr.outputs.Label()
+image = gr.Image(shape=(192,192))
+label = gr.Label()
 examples = ['example_pictures/butter_chicken.png', 'example_pictures/samosa.png', 'example_pictures/burger.png']
 
 iface = gr.Interface(fn=will_akash_eat(LEARNER), inputs=image, outputs=label, examples=examples)
