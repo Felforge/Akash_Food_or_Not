@@ -12,8 +12,8 @@ def will_akash_eat(learn) -> bool:
             return False
     return will_akash_eat_inner
 
-image = gr.inputs.Image(shape=(192,192))
-label = gr.outputs.Label()
+image = gr.components.Image(shape=(192,192))
+label = gr.components.Label
 
 iface = gr.Interface(fn=will_akash_eat(LEARNER), inputs=image, outputs=label)
 iface.launch()
