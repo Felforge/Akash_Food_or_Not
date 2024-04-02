@@ -2,18 +2,30 @@ from fastai.vision.all import load_learner
 import gradio as gr
 
 LEARNER = load_learner("Akash_Food_or_Not.pkl")
+TITLE = "Will Akash eat this food?"
+EXAMPLES = ['example_pictures/butter_chicken.png', 'example_pictures/samosa.png',
+            'example_pictures/burger.png']
 
 def will_akash_eat(learn):
+    """_summary_
+    Take in learning model and image and return propbability
+    of either possible outcome
+
+    Args:
+        learn (learning model): pickle file imported with load_learner from fastai
+        image_name (image file): image file used in conjucntion with learn to make a predicition
+    """
     def will_akash_eat_inner(image_name):
+        # Original labels
+        # labels = learn.dls.vocab
         labels = ["STEALING THIS OUT THE FRIDGE 😋🍴", "HEEEELLLL NAAAAHHH 🤮"]
-        pred, idx, probs = learn.predict(image_name)
+        _, _, probs = learn.predict(image_name)
         return {labels[i]: float(probs[i]) for i in range(len(labels))}
     return will_akash_eat_inner
 
 image = gr.Image()
 label = gr.Label()
-title = "Will Akash eat this food?"
-examples = ['example_pictures/butter_chicken.png', 'example_pictures/samosa.png', 'example_pictures/burger.png']
 
-iface = gr.Interface(fn=will_akash_eat(LEARNER), inputs=image, outputs=label, examples=examples, title=title)
+iface = gr.Interface(fn=will_akash_eat(LEARNER), inputs=image, outputs=label, examples=EXAMPLES, 
+                     title=TITLE)
 iface.launch()
