@@ -5,7 +5,7 @@ LEARNER = load_learner("Akash_Food_or_Not.pkl")
 
 def will_akash_eat(learn):
     def will_akash_eat_inner(image_name):
-        labels = ["OH HEEEELLLL NAAAAHHH 🤮", "STEALING THIS OUT THE FRIDGE 😋🍴"]
+        labels = ["STEALING THIS OUT THE FRIDGE 😋🍴", "H HEEEELLLL NAAAAHHH 🤮"]
         pred, idx, probs = learn.predict(image_name)
         return {labels[i]: float(probs[i]) for i in range(len(labels))}
     return will_akash_eat_inner
