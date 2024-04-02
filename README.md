@@ -11,4 +11,5 @@ license: apache-2.0
 ---
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+
 Use app at https://huggingface.co/spaces/PrestonLXIX/Akash_Food_or_Not
