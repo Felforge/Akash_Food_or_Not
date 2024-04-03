@@ -1,6 +1,9 @@
 from fastai.vision.all import load_learner
 import gradio as gr
 
+# Look at this link and make my own API whenever
+# https://github.com/fastai/tinypets/tree/master
+
 LEARNER = load_learner("Akash_Food_or_Not.pkl")
 TITLE = "Will Akash eat this food?"
 EXAMPLES = ['example_pictures/butter_chicken.png', 'example_pictures/samosa.png',
